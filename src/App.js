@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import ClockList from "./components/ClockList";
+import Form from "./components/Form";
+import TemperatureCalculator from "./components/TemperatureCalculator";
+import ClickCounter from "./components/ClickCounter";
+import HoverCounter from "./components/HoverCounter";
+import User from "./components/User";
+import HoverIncrement from "./components/HoverIncrement";
+import CountingEvent from "./components/CountingEvent";
 
 function App() {
+  const quantities = [1, 2, 3];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ClockList quantities={quantities} />
+      <br />
+      <Form />
+      <br />
+      <TemperatureCalculator />
+      <br />
+      <ClickCounter />
+      <HoverCounter />
+      <br />
+      <User name={(isLoggedIn) => (isLoggedIn ? "Amio Das" : "Guest User")} />
+      <br />
+      <CountingEvent
+        render={(count, incrementCount) => (
+          <HoverIncrement count={count} incrementCount={incrementCount} />
+        )}
+      />
     </div>
   );
 }
